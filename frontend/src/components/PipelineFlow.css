@@ -1,0 +1,125 @@
+.pipeline-flow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.75rem 2rem;
+  background: linear-gradient(180deg, #121a2d, #0d1324);
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  overflow-x: auto;
+}
+
+.flow-line {
+  position: absolute;
+  top: 44px;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.08);
+  z-index: 0;
+}
+
+.flow-step {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 140px;
+  cursor: default;
+  transition: all 0.3s ease;
+}
+
+.flow-step.clickable {
+  cursor: pointer;
+}
+
+.flow-step.clickable:hover {
+  transform: translateY(-4px);
+}
+
+.step-circle {
+  width: 58px;
+  height: 58px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border);
+  color: var(--muted);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+.flow-step.pending .step-circle {
+  opacity: 0.65;
+}
+
+.flow-step.active .step-circle {
+  background: linear-gradient(135deg, #ff8a3d, #ff7a12);
+  border-color: rgba(255, 138, 61, 0.4);
+  color: #0f1424;
+  box-shadow: 0 14px 32px rgba(255, 138, 61, 0.35);
+}
+
+.flow-step.completed .step-circle {
+  background: rgba(255, 138, 61, 0.16);
+  border-color: rgba(255, 138, 61, 0.35);
+  color: #ffb472;
+}
+
+.step-number {
+  font-size: 1.05rem;
+}
+
+.step-label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+  text-align: center;
+  letter-spacing: -0.01em;
+}
+
+.flow-step.active .step-label {
+  color: #ffb472;
+}
+
+.flow-step.completed .step-label {
+  color: #ff9a52;
+}
+
+.step-indicator {
+  position: absolute;
+  bottom: -1.1rem;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #ff8a3d;
+}
+
+@media (max-width: 768px) {
+  .pipeline-flow {
+    padding: 1.2rem;
+  }
+  
+  .flow-step {
+    min-width: 110px;
+  }
+  
+  .step-circle {
+    width: 52px;
+    height: 52px;
+    font-size: 1rem;
+  }
+  
+  .step-label {
+    font-size: 0.8rem;
+  }
+}
+

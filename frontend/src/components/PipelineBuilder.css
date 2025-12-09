@@ -1,0 +1,29 @@
+.pipeline-builder {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.pipeline-container {
+  background: #0c1223;
+  border-radius: 22px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  min-height: 620px;
+  position: relative;
+}
+
+.pipeline-container::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 28%);
+}
+
+.step-content {
+  padding: 2rem;
+  min-height: 520px;
+}
+
